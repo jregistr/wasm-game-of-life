@@ -17,3 +17,8 @@ extern {
 pub fn greet() {
     alert("Hello, wasm-rust!");
 }
+
+#[wasm_bindgen(js_name="sayHello")]
+pub fn say_hello(name: &str) -> String {
+    return format!("Hello {}, I hope you're having a great day!", name)
+}

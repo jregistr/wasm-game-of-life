@@ -8,4 +8,6 @@ document.body.appendChild(helloHead);
 
 wasm.greet();
 
-
+const h3 = document.createElement("h3");
+h3.appendChild(document.createTextNode(wasm.sayHello("Stranger")));
+document.body.appendChild(h3);
