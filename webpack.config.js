@@ -2,9 +2,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 const dist = path.resolve(__dirname, "dist");
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
+const wasmRustDir = path.resolve(__dirname, "wasm-rust");
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './bootstrap.js',
     module: {
         rules: [
             {
@@ -29,8 +31,12 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {from: "index.html", to: "index.html"},
-                {from: "bootstrap.js", to: "bootstrap.js"}
             ]
+        }),
+        new WasmPackPlugin({
+            crateDirectory: wasmRustDir,
+            args: "--log-level warn",
+            outDir: path.join(wasmRustDir, "pkg")
         })
     ]
 };
