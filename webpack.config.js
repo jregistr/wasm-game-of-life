@@ -33,10 +33,11 @@ module.exports = {
                 {from: "index.html", to: "index.html"},
             ]
         }),
-        new WasmPackPlugin({
-            crateDirectory: wasmRustDir,
-            args: "--log-level warn",
-            outDir: path.join(wasmRustDir, "pkg")
-        })
+        // new WasmPackPlugin({
+        //     crateDirectory: wasmRustDir,
+        //     args: "--log-level warn",
+        //     outDir: path.join(wasmRustDir, "pkg"),
+        //     extraArgs: ""
+        // })
     ]
 };
