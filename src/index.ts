@@ -1,6 +1,6 @@
 import hello from "./hello";
 import {Universe, Cell} from "wasm-rust";
-import {memory} from "wasm-rust/wasm_rust_bg";
+import {memory} from "wasm-rust/index_bg";
 
 // const helloHead = document.createElement("h1");
 // helloHead.append(document.createTextNode(hello()));
